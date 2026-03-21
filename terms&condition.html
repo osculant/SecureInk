@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>SecureInk India | Terms and condititon</title>
+  <!-- Google Fonts + Tailwind + Font Awesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    body { background: #fefcf5; overflow-x: hidden; }
+    /* modern animated gradient hero */
+    .hero-glow {
+      background: radial-gradient(circle at 20% 30%, rgba(220, 38, 38, 0.25), rgba(0,0,0,0.7)), 
+                  url('./home-cover.webp') center/cover no-repeat;
+      background-blend-mode: overlay;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.3s ease;
+    }
+    .pricing-card-modern {
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    .pricing-card-modern:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 35px 40px -20px rgba(0,0,0,0.3);
+    }
+    .gradient-border {
+      background: linear-gradient(135deg, #FF4D4D, #C0262D);
+      padding: 2px;
+      border-radius: 2rem;
+    }
+    .badge-pulse {
+      animation: softPulse 2s infinite;
+    }
+    @keyframes softPulse {
+      0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+      70% { box-shadow: 0 0 0 12px rgba(220, 38, 38, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+    }
+    .floating-icon {
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    .glow-text {
+      text-shadow: 0 2px 20px rgba(220,38,38,0.3);
+    }
+    .btn-ripple {
+      transition: all 0.2s;
+    }
+    .btn-ripple:active { transform: scale(0.97); }
+    input, select, textarea {
+      transition: all 0.2s;
+    }
+    input:focus, select:focus, textarea:focus {
+      transform: scale(1.01);
+      box-shadow: 0 8px 20px -8px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body class="bg-white font-sans antialiased">
+    <!-- Premium Navbar (Sticky, Glass Morphism) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200/60 shadow-sm">
+  <nav class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="flex justify-between items-center h-20">
+      
+      <a href="./index.html" class="flex items-center gap-2.5 group cursor-pointer">
+        <div class="relative">
+          <i class="fas fa-shield-halved text-4xl text-red-600"></i>
+        </div>
+        <span class="text-3xl font-black tracking-tighter bg-gradient-to-r from-red-700 to-red-500 bg-clip-text text-transparent">SecureInk</span>
+      </a>
+
+      <div class="hidden md:flex items-center space-x-9 text-sm font-semibold">
+        <a href="./index.html" class="text-gray-700 hover:text-red-600 transition">Home</a>
+        <a href="./product.html" class="text-gray-700 hover:text-red-600 transition">Product</a>
+        <a href="./service.html" class="text-gray-700 hover:text-red-600 transition">Service</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="#pricing" class="hidden sm:block bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-bold transition-all text-sm">
+          Secure Now
+        </a>
+
+        <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center p-2 text-gray-800 hover:text-red-600 transition-colors" aria-label="Toggle Menu">
+          <i id="menu-icon" class="fa-solid fa-bars text-2xl pointer-events-none"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 animate-fade-in-down">
+      <div class="flex flex-col space-y-4 py-6 px-2">
+        <a href="./index.html" class="text-lg font-bold text-gray-800 hover:bg-red-50 p-3 rounded-xl transition">Home</a>
+        <a href="./product.html" class="text-lg font-bold text-gray-800 hover:bg-red-50 p-3 rounded-xl transition">Product</a>
+        <a href="./service.html" class="text-lg font-bold text-gray-800 hover:bg-red-50 p-3 rounded-xl transition">Service</a>
+        <div class="pt-4 border-t border-gray-100 flex flex-col gap-4">
+          <a href="#" class="text-gray-600 font-semibold px-3"><i class="fas fa-user-lock mr-2"></i>My Account</a>
+          <a href="#pricing" class="w-full text-center bg-red-600 text-white py-4 rounded-2xl font-bold">Secure Now</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    
+    // Switch between bars (hamburger) and X (close)
+    const isHidden = mobileMenu.classList.contains('hidden');
+    menuIcon.className = isHidden ? 'fa-solid fa-bars text-2xl' : 'fa-solid fa-xmark text-2xl';
+  });
+</script>
+
+<main class="max-w-5xl mx-auto px-6 py-16 lg:py-24">
+    <h1 class="text-5xl font-black text-center mb-6 bg-gradient-to-r from-red-700 to-red-500 bg-clip-text text-transparent">Terms & Conditions</h1>
+    <p class="text-center text-gray-600 mb-16">Last Updated: March 21, 2026</p>
+
+    <div class="space-y-12 text-gray-800 leading-relaxed">
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-red-700">1. Acceptance of Terms</h2>
+        <p>By accessing or using SecureInk Services (antivirus, identity protection, etc.), you agree to these Terms. If you do not agree, do not use our Services.</p>
+      </section>
+
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-red-700">2. License & Use</h2>
+        <p>We grant you a limited, non-exclusive, non-transferable license to use our software for personal/family use (as per your subscription). You may not reverse-engineer, modify, or distribute it.</p>
+      </section>
+
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-red-700">3. Subscription & Payment</h2>
+        <p>Subscriptions auto-renew unless canceled. You are responsible for keeping payment information current. We may suspend Services for non-payment.</p>
+      </section>
+
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-red-700">4. Limitation of Liability</h2>
+        <p>Our Services provide best-effort protection but cannot guarantee 100% security against all threats. We are not liable for data loss, business interruption, or indirect damages.</p>
+      </section>
+
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-red-700">5. Termination</h2>
+        <p>We may terminate or suspend your account for violation of these Terms or suspected fraud.</p>
+      </section>
+
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-red-700">6. Governing Law</h2>
+        <p>These Terms are governed by the laws of India. Disputes shall be resolved in courts of Gurugram, Haryana.</p>
+      </section>
+
+      <section>
+        <h2 class="text-3xl font-bold mb-6 text-red-700">7. Contact</h2>
+        <p>For questions: <a href="mailto:support@secureink.in" class="text-red-600 hover:underline">support@secureink.in</a></p>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer - modern minimal -->
+  <footer class="bg-gray-950 text-gray-400 pt-20 pb-10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-10 mb-16">
+        <div class="col-span-2">
+          <div class="flex items-center gap-2">
+            <i class="fas fa-shield-alt text-4xl text-red-500"></i><span class="text-3xl font-black text-white">SecureInk</span>
+          </div>
+          <p class="text-sm mt-4">© 2026 SecureInk India. All rights reserved. Securing digital frontiers.</p>
+        </div>
+        <div>
+          <h5 class="text-white font-bold mb-5">Protection</h5>
+          <ul class="space-y-2 text-sm">
+            <li><a href="./product.html">Product</a></li>
+            <li><a href="./service.html">Services</a></li>
+            <li>Identity Theft</li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold mb-5">Company</h5>
+          <ul class="space-y-2 text-sm">
+            <li>About SecureInk</li>
+            <li>Partner Program</li>
+            <li>Press</li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold mb-5">Support</h5>
+          <ul class="space-y-2 text-sm">
+            <li><a href="./privacy-policies.html">Privacy Policies</a></li>
+            <li><a href="./terms&condition.html">Terms & Condition</a></li>
+            <li><a href="./return&refund.html">Refund Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-8 flex flex-wrap justify-between text-xs">
+        <span>Made with 🛡️ for digital India</span><span>
+        <a href="./privacy-policies.html" class="hover:text-white">Privacy</a> | <a href="./terms&condition.html" class="hover:text-white">Terms</a></span></div>
+    </div>
+  </footer>
+</body>
+</html>

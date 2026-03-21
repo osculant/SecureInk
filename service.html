@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>SecureInk India | Services</title>
+  <!-- Google Fonts + Tailwind + Font Awesome -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    body { background: #fefcf5; overflow-x: hidden; }
+    /* modern animated gradient hero */
+    .hero-glow {
+      background: radial-gradient(circle at 20% 30%, rgba(220, 38, 38, 0.25), rgba(0,0,0,0.7)), 
+                  url('./home-cover.webp') center/cover no-repeat;
+      background-blend-mode: overlay;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.3s ease;
+    }
+    .pricing-card-modern {
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    .pricing-card-modern:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 35px 40px -20px rgba(0,0,0,0.3);
+    }
+    .gradient-border {
+      background: linear-gradient(135deg, #FF4D4D, #C0262D);
+      padding: 2px;
+      border-radius: 2rem;
+    }
+    .badge-pulse {
+      animation: softPulse 2s infinite;
+    }
+    @keyframes softPulse {
+      0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+      70% { box-shadow: 0 0 0 12px rgba(220, 38, 38, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+    }
+    .floating-icon {
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    .glow-text {
+      text-shadow: 0 2px 20px rgba(220,38,38,0.3);
+    }
+    .btn-ripple {
+      transition: all 0.2s;
+    }
+    .btn-ripple:active { transform: scale(0.97); }
+    input, select, textarea {
+      transition: all 0.2s;
+    }
+    input:focus, select:focus, textarea:focus {
+      transform: scale(1.01);
+      box-shadow: 0 8px 20px -8px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body class="bg-white font-sans antialiased">
+
+  <!-- Premium Navbar (Sticky, Glass Morphism) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200/60 shadow-sm">
+  <nav class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="flex justify-between items-center h-20">
+      
+      <a href="./index.html" class="flex items-center gap-2.5 group cursor-pointer">
+        <div class="relative">
+          <i class="fas fa-shield-halved text-4xl text-red-600"></i>
+        </div>
+        <span class="text-3xl font-black tracking-tighter bg-gradient-to-r from-red-700 to-red-500 bg-clip-text text-transparent">SecureInk</span>
+      </a>
+
+      <div class="hidden md:flex items-center space-x-9 text-sm font-semibold">
+        <a href="./index.html" class="text-gray-700 hover:text-red-600 transition">Home</a>
+        <a href="./product.html" class="text-gray-700 hover:text-red-600 transition">Product</a>
+        <a href="./service.html" class="text-gray-700 hover:text-red-600 transition">Service</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="#pricing" class="hidden sm:block bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-bold transition-all text-sm">
+          Secure Now
+        </a>
+
+        <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center p-2 text-gray-800 hover:text-red-600 transition-colors" aria-label="Toggle Menu">
+          <i id="menu-icon" class="fa-solid fa-bars text-2xl pointer-events-none"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 animate-fade-in-down">
+      <div class="flex flex-col space-y-4 py-6 px-2">
+        <a href="./index.html" class="text-lg font-bold text-gray-800 hover:bg-red-50 p-3 rounded-xl transition">Home</a>
+        <a href="./product.html" class="text-lg font-bold text-gray-800 hover:bg-red-50 p-3 rounded-xl transition">Product</a>
+        <a href="./service.html" class="text-lg font-bold text-gray-800 hover:bg-red-50 p-3 rounded-xl transition">Service</a>
+        <div class="pt-4 border-t border-gray-100 flex flex-col gap-4">
+          <a href="#" class="text-gray-600 font-semibold px-3"><i class="fas fa-user-lock mr-2"></i>My Account</a>
+          <a href="#pricing" class="w-full text-center bg-red-600 text-white py-4 rounded-2xl font-bold">Secure Now</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+    
+    // Switch between bars (hamburger) and X (close)
+    const isHidden = mobileMenu.classList.contains('hidden');
+    menuIcon.className = isHidden ? 'fa-solid fa-bars text-2xl' : 'fa-solid fa-xmark text-2xl';
+  });
+</script>
+
+  <!-- Hero – Services-Focused (Responsive) -->
+  <section class="hero-glow min-h-[65vh] sm:min-h-[75vh] flex items-center text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-black/65 via-red-900/40 to-transparent"></div>
+    
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 relative z-10 w-full">
+      <div class="text-center max-w-4xl mx-auto">
+        <span class="inline-block px-4 py-1.5 sm:px-5 sm:py-2 bg-red-600/80 backdrop-blur-sm text-white text-xs sm:text-sm font-bold rounded-full mb-4 sm:mb-6 badge-pulse">
+          Complete Digital Security Services
+        </span>
+        
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-4 sm:mb-6 glow-text">
+          Beyond Antivirus –<br class="hidden sm:block"/> Full Protection Services
+        </h1>
+        
+        <p class="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-10 opacity-95 leading-relaxed">
+          SecureInk delivers premium services like unlimited VPN, 24/7 identity monitoring, parental controls, scam detection, and more — layered on top of award-winning antivirus for complete online safety.
+        </p>
+
+        <a href="./product.html#plans" class="inline-block bg-white text-red-700 px-8 py-4 sm:px-12 sm:py-6 rounded-full font-bold text-base sm:text-xl shadow-2xl hover:bg-gray-100 transition transform hover:-translate-y-1">
+          Explore Plans & Activate Services →
+        </a>
+
+        <div class="mt-8 sm:mt-12 flex flex-wrap justify-center gap-6 sm:gap-10 text-sm sm:text-base">
+          <div class="flex items-center gap-2 sm:gap-3"><i class="fas fa-lock text-red-400 text-xl sm:text-2xl"></i> Unlimited VPN</div>
+          <div class="flex items-center gap-2 sm:gap-3"><i class="fas fa-user-shield text-red-400 text-xl sm:text-2xl"></i> Identity Monitoring</div>
+          <div class="flex items-center gap-2 sm:gap-3"><i class="fas fa-child text-red-400 text-xl sm:text-2xl"></i> Parental Controls</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating elements – hidden on mobile for performance/clarity -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden hidden sm:block">
+      <i class="fas fa-lock text-[180px] text-red-500/10 absolute top-20 left-10 floating-icon"></i>
+      <i class="fas fa-user-secret text-[150px] text-white/10 absolute bottom-10 right-20 floating-icon"></i>
+    </div>
+  </section>
+
+  <!-- Services Grid – Responsive -->
+  <section class="py-16 sm:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div class="text-center mb-12 sm:mb-16">
+        <h2 class="text-4xl sm:text-5xl font-black text-gray-900">Our Premium Security Services</h2>
+        <p class="text-lg sm:text-xl text-gray-600 mt-4 max-w-3xl mx-auto">
+          Enhance your protection with these powerful add-on services — available standalone or bundled in SecureInk plans.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <!-- Service 1: VPN -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 text-center">
+          <i class="fas fa-shield-alt text-5xl sm:text-6xl text-red-600 mb-4 sm:mb-6 floating-icon"></i>
+          <h3 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-gray-900">Unlimited Secure VPN</h3>
+          <p class="text-gray-600 text-base sm:text-lg mb-4 sm:mb-6">
+            Encrypt your connection, hide your IP, and browse privately on public Wi-Fi with unlimited bandwidth and fast speeds.
+          </p>
+          <ul class="text-left space-y-2 text-gray-700 text-sm sm:text-base">
+            <li><i class="fas fa-check text-red-500 mr-2"></i>Bank-grade encryption</li>
+            <li><i class="fas fa-check text-red-500 mr-2"></i>No-logs policy</li>
+            <li><i class="fas fa-check text-red-500 mr-2"></i>Global servers</li>
+          </ul>
+        </div>
+
+        <!-- Service 2: Identity Protection -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 text-center">
+          <i class="fas fa-user-shield text-5xl sm:text-6xl text-red-600 mb-4 sm:mb-6 floating-icon"></i>
+          <h3 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-gray-900">24/7 Identity Monitoring</h3>
+          <p class="text-gray-600 text-base sm:text-lg mb-4 sm:mb-6">
+            Dark web scans, credit alerts, breach notifications, and expert recovery help if your identity is compromised.
+          </p>
+          <ul class="text-left space-y-2 text-gray-700 text-sm sm:text-base">
+            <li><i class="fas fa-check text-red-500 mr-2"></i>Dark web & breach alerts</li>
+            <li><i class="fas fa-check text-red-500 mr-2"></i>Financial monitoring</li>
+            <li><i class="fas fa-check text-red-500 mr-2"></i>Restoration support</li>
+          </ul>
+        </div>
+
+        <!-- Service 3: Parental Controls -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 text-center">
+          <i class="fas fa-child text-5xl sm:text-6xl text-red-600 mb-4 sm:mb-6 floating-icon"></i>
+          <h3 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-gray-900">Advanced Parental Controls</h3>
+          <p class="text-gray-600 text-base sm:text-lg mb-4 sm:mb-6">
+            Set screen time limits, block inappropriate content, track location, and monitor app/web usage for family safety.
+          </p>
+          <ul class="text-left space-y-2 text-gray-700 text-sm sm:text-base">
+            <li><i class="fas fa-check text-red-500 mr-2"></i>Content filtering</li>
+            <li><i class="fas fa-check text-red-500 mr-2"></i>Time scheduling</li>
+            <li><i class="fas fa-check text-red-500 mr-2"></i>Location tracking</li>
+          </ul>
+        </div>
+
+        <!-- Service 4: Scam Detector -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 text-center">
+          <i class="fas fa-exclamation-triangle text-5xl sm:text-6xl text-red-600 mb-4 sm:mb-6 floating-icon"></i>
+          <h3 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-gray-900">AI Scam & Phishing Protection</h3>
+          <p class="text-gray-600 text-base sm:text-lg mb-4 sm:mb-6">
+            Real-time detection of phishing emails, fake calls, deepfake scams, and suspicious links before they reach you.
+          </p>
+          <ul class="text-left space-y-2 text-gray-700 text-sm sm:text-base">
+            <li><i class="fas fa-check text-red-500 mr-2"></i>AI-powered alerts</li>
+            <li><i class="fas fa-check text-red-500 mr-2"></i>Safe browsing warnings</li>
+            <li><i class="fas fa-check text-red-500 mr-2"></i>WebAdvisor integration</li>
+          </ul>
+        </div>
+
+        <!-- Service 5: Password Manager -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 text-center">
+          <i class="fas fa-key text-5xl sm:text-6xl text-red-600 mb-4 sm:mb-6 floating-icon"></i>
+          <h3 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-gray-900">Secure Password Manager</h3>
+          <p class="text-gray-600 text-base sm:text-lg mb-4 sm:mb-6">
+            Store, generate, and auto-fill strong passwords across devices with breach alerts for compromised accounts.
+          </p>
+          <ul class="text-left space-y-2 text-gray-700 text-sm sm:text-base">
+            <li><i class="fas fa-check text-red-500 mr-2"></i>Secure vault</li>
+            <li><i class="fas fa-check text-red-500 mr-2"></i>Auto-fill & generator</li>
+            <li><i class="fas fa-check text-red-500 mr-2"></i>Breach monitoring</li>
+          </ul>
+        </div>
+
+        <!-- Service 6: Mobile Security -->
+        <div class="glass-card rounded-3xl p-6 sm:p-8 text-center">
+          <i class="fas fa-mobile-alt text-5xl sm:text-6xl text-red-600 mb-4 sm:mb-6 floating-icon"></i>
+          <h3 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-gray-900">Mobile Security & Anti-Theft</h3>
+          <p class="text-gray-600 text-base sm:text-lg mb-4 sm:mb-6">
+            Protect smartphones with app scanning, Wi-Fi security, remote lock/wipe, and safe browsing on the go.
+          </p>
+          <ul class="text-left space-y-2 text-gray-700 text-sm sm:text-base">
+            <li><i class="fas fa-check text-red-500 mr-2"></i>App & malware scan</li>
+            <li><i class="fas fa-check text-red-500 mr-2"></i>Anti-theft tools</li>
+            <li><i class="fas fa-check text-red-500 mr-2"></i>Safe Wi-Fi detection</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 sm:py-20 bg-gradient-to-r from-red-600 to-red-800 text-white text-center">
+    <div class="max-w-4xl mx-auto px-5 sm:px-6">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-black mb-4 sm:mb-6">Ready for Full Protection?</h2>
+      <p class="text-lg sm:text-xl mb-6 sm:mb-8 opacity-90">
+        Activate these services today with SecureInk plans. 30-day money-back guarantee.
+      </p>
+      <a href="./product.html#plans" class="inline-block bg-white text-red-700 px-8 py-4 sm:px-12 sm:py-6 rounded-full text-base sm:text-xl font-bold shadow-2xl hover:bg-gray-100 transition transform hover:-translate-y-2">
+        Choose Your Plan Now →
+      </a>
+    </div>
+  </section>
+
+    <!-- Footer - modern minimal -->
+  <footer class="bg-gray-950 text-gray-400 pt-20 pb-10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-10 mb-16">
+        <div class="col-span-2">
+          <div class="flex items-center gap-2">
+            <i class="fas fa-shield-alt text-4xl text-red-500"></i><span class="text-3xl font-black text-white">SecureInk</span>
+          </div>
+          <p class="text-sm mt-4">© 2026 SecureInk India. All rights reserved. Securing digital frontiers.</p>
+        </div>
+        <div>
+          <h5 class="text-white font-bold mb-5">Protection</h5>
+          <ul class="space-y-2 text-sm">
+            <li><a href="./product.html">Product</a></li>
+            <li><a href="./service.html">Services</a></li>
+            <li>Identity Theft</li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold mb-5">Company</h5>
+          <ul class="space-y-2 text-sm">
+            <li>About SecureInk</li>
+            <li>Partner Program</li>
+            <li>Press</li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-bold mb-5">Support</h5>
+          <ul class="space-y-2 text-sm">
+            <li><a href="./privacy-policies.html">Privacy Policies</a></li>
+            <li><a href="./terms&condition.html">Terms & Condition</a></li>
+            <li><a href="./return&refund.html">Refund Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-8 flex flex-wrap justify-between text-xs">
+        <span>Made with 🛡️ for digital India</span><span>
+        <a href="./privacy-policies.html" class="hover:text-white">Privacy</a> | <a href="./terms&condition.html" class="hover:text-white">Terms</a></span></div>
+    </div>
+  </footer>
+</body>
+</html>
